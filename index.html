@@ -201,6 +201,82 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        .gay-person {
+            position: fixed;
+            font-size: 4rem;
+            pointer-events: none;
+            z-index: 999;
+            animation: gayPersonFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes gayPersonFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .dancing-person {
+            position: fixed;
+            font-size: 3rem;
+            pointer-events: none;
+            z-index: 999;
+            animation: dance 1s ease-in-out infinite;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: translateX(0px) rotate(0deg) scale(1); }
+            25% { transform: translateX(-5px) rotate(-10deg) scale(1.1); }
+            50% { transform: translateX(5px) rotate(10deg) scale(0.9); }
+            75% { transform: translateX(-3px) rotate(-5deg) scale(1.05); }
+        }
+
+        .pride-flag {
+            position: fixed;
+            width: 60px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 998;
+            background: linear-gradient(to bottom, 
+                #e40303 0%, #e40303 16.66%, 
+                #ff8c00 16.66%, #ff8c00 33.33%, 
+                #ffed00 33.33%, #ffed00 50%, 
+                #008018 50%, #008018 66.66%, 
+                #0066ff 66.66%, #0066ff 83.33%, 
+                #8b00ff 83.33%, #8b00ff 100%);
+            border-radius: 5px;
+            animation: flagWave 2s ease-in-out infinite;
+        }
+
+        @keyframes flagWave {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .rainbow-trail {
+            position: fixed;
+            width: 100px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 997;
+            background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff);
+            border-radius: 10px;
+            animation: trailMove 3s linear infinite;
+        }
+
+        @keyframes trailMove {
+            0% { 
+                transform: translateX(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateX(calc(100vw + 100px)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .rainbow-text {
                 font-size: 2.5rem;
@@ -251,6 +327,18 @@
             
             <button class="gay-button" onclick="birthdayMessage()">
                 🎂 MENSAGEM ESPECIAL 🎂
+            </button>
+
+            <button class="gay-button" onclick="gayParade()">
+                🏳️‍🌈 PARADA GAY 🏳️‍🌈
+            </button>
+            
+            <button class="gay-button" onclick="danceParty()">
+                💃 FESTA DANÇANTE 🕺
+            </button>
+            
+            <button class="gay-button" onclick="prideExplosion()">
+                🎪 EXPLOSÃO DO ORGULHO 🎪
             </button>
         </div>
     </div>
@@ -393,6 +481,148 @@
             }, 3000);
         }
 
+        function gayParade() {
+            const gayPeople = ['👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '👨‍❤️‍💋‍👨', '👩‍❤️‍💋‍👩', '🌈', '💅', '💃', '🕺', '👑', '💖', '🦄', '✨'];
+            
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const person = document.createElement('div');
+                    person.className = 'gay-person';
+                    person.textContent = gayPeople[Math.floor(Math.random() * gayPeople.length)];
+                    person.style.left = '-100px';
+                    person.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+                    
+                    document.body.appendChild(person);
+                    
+                    // Move da esquerda para direita
+                    setTimeout(() => {
+                        person.style.transition = 'left 4s linear';
+                        person.style.left = window.innerWidth + 100 + 'px';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(person);
+                    }, 4500);
+                }, i * 200);
+            }
+
+            // Adiciona bandeiras do orgulho
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const flag = document.createElement('div');
+                    flag.className = 'pride-flag';
+                    flag.style.left = Math.random() * window.innerWidth + 'px';
+                    flag.style.top = Math.random() * window.innerHeight + 'px';
+                    
+                    document.body.appendChild(flag);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(flag);
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        function danceParty() {
+            const dancers = ['💃', '🕺', '👯‍♀️', '👯‍♂️', '🕴️', '💅', '👨‍❤️‍👨', '👩‍❤️‍👩'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const dancer = document.createElement('div');
+                    dancer.className = 'dancing-person';
+                    dancer.textContent = dancers[Math.floor(Math.random() * dancers.length)];
+                    dancer.style.left = Math.random() * window.innerWidth + 'px';
+                    dancer.style.top = Math.random() * window.innerHeight + 'px';
+                    
+                    document.body.appendChild(dancer);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(dancer);
+                    }, 3000);
+                }, i * 150);
+            }
+
+            // Adiciona trails de arco-íris
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const trail = document.createElement('div');
+                    trail.className = 'rainbow-trail';
+                    trail.style.top = Math.random() * window.innerHeight + 'px';
+                    trail.style.left = '-100px';
+                    
+                    document.body.appendChild(trail);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(trail);
+                    }, 3000);
+                }, i * 300);
+            }
+        }
+
+        function prideExplosion() {
+            const prideElements = ['🏳️‍🌈', '👨‍❤️‍👨', '👩‍❤️‍👩', '💖', '🌈', '💅', '👑', '🦄', '✨', '💃', '🕺', '💋', '👯‍♀️', '👯‍♂️'];
+            
+            // Explosão central
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const element = document.createElement('div');
+                    element.textContent = prideElements[Math.floor(Math.random() * prideElements.length)];
+                    element.style.position = 'fixed';
+                    element.style.fontSize = '2rem';
+                    element.style.left = window.innerWidth / 2 + 'px';
+                    element.style.top = window.innerHeight / 2 + 'px';
+                    element.style.pointerEvents = 'none';
+                    element.style.zIndex = '1000';
+                    
+                    const angle = (i / 40) * 2 * Math.PI;
+                    const distance = Math.random() * 300 + 100;
+                    
+                    document.body.appendChild(element);
+                    
+                    setTimeout(() => {
+                        element.style.transition = 'all 2s ease-out';
+                        element.style.left = (window.innerWidth / 2 + Math.cos(angle) * distance) + 'px';
+                        element.style.top = (window.innerHeight / 2 + Math.sin(angle) * distance) + 'px';
+                        element.style.transform = 'rotate(720deg) scale(2)';
+                        element.style.opacity = '0';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(element);
+                    }, 2200);
+                }, i * 50);
+            }
+
+            // Casais dançando nos cantos
+            const couples = ['👨‍❤️‍👨', '👩‍❤️‍👩', '👨‍❤️‍💋‍👨', '👩‍❤️‍💋‍👩'];
+            const positions = [
+                {left: '10%', top: '10%'},
+                {left: '90%', top: '10%'},
+                {left: '10%', top: '90%'},
+                {left: '90%', top: '90%'}
+            ];
+
+            positions.forEach((pos, index) => {
+                setTimeout(() => {
+                    const couple = document.createElement('div');
+                    couple.textContent = couples[index % couples.length];
+                    couple.style.position = 'fixed';
+                    couple.style.fontSize = '4rem';
+                    couple.style.left = pos.left;
+                    couple.style.top = pos.top;
+                    couple.style.pointerEvents = 'none';
+                    couple.style.zIndex = '999';
+                    couple.style.animation = 'dance 0.5s ease-in-out infinite';
+                    
+                    document.body.appendChild(couple);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(couple);
+                    }, 4000);
+                }, index * 500);
+            });
+        }
+
         // Adiciona animação CSS para confetti
         const style = document.createElement('style');
         style.textContent = `
@@ -403,6 +633,34 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Efeito automático de pessoas gays passando na tela
+        setInterval(() => {
+            if (Math.random() < 0.3) {
+                const gayPeople = ['👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '💅', '👑', '🦄'];
+                const person = document.createElement('div');
+                person.textContent = gayPeople[Math.floor(Math.random() * gayPeople.length)];
+                person.style.position = 'fixed';
+                person.style.fontSize = '3rem';
+                person.style.left = '-100px';
+                person.style.top = Math.random() * window.innerHeight + 'px';
+                person.style.pointerEvents = 'none';
+                person.style.zIndex = '998';
+                person.style.transition = 'left 5s linear';
+                
+                document.body.appendChild(person);
+                
+                setTimeout(() => {
+                    person.style.left = window.innerWidth + 100 + 'px';
+                }, 100);
+                
+                setTimeout(() => {
+                    if (document.body.contains(person)) {
+                        document.body.removeChild(person);
+                    }
+                }, 5200);
+            }
+        }, 2000);
 
         // Efeito automático de brilho no fundo
         setInterval(() => {
