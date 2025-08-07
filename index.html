@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌈 Feliz Aniversário Eduardo! 🌈</title>
+    <title>🌈 CONVITE FABULOSO - Eduardo's B-Day 🌈</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700;800&display=swap');
         
         * {
             margin: 0;
@@ -14,658 +14,571 @@
         }
 
         body {
-            font-family: 'Nunito', sans-serif;
-            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #f0932b, #eb4d4b, #6c5ce7, #fd79a8, #fdcb6e);
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+            background-size: 300% 300%;
+            animation: ultimateGradient 4s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        @keyframes gradientShift {
+        @keyframes ultimateGradient {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
             100% { background-position: 0% 50%; }
         }
 
-        .rainbow-text {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4rem;
-            text-align: center;
-            background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowMove 2s linear infinite;
-            margin: 2rem 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .invitation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            backdrop-filter: blur(20px);
+            border: 5px solid transparent;
+            background-clip: padding-box;
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes rainbowMove {
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+            border-radius: 35px;
+            z-index: -1;
+            animation: borderGlow 2s linear infinite;
+        }
+
+        @keyframes borderGlow {
             0% { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(360deg); }
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
         }
 
-        .birthday-message {
-            background: rgba(255, 255, 255, 0.9);
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .party-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowPulse 1.5s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+        }
+
+        @keyframes rainbowPulse {
+            0%, 100% { transform: scale(1); filter: hue-rotate(0deg); }
+            50% { transform: scale(1.05); filter: hue-rotate(180deg); }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ff006e;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .birthday-boy {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #8338ec;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: nameGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes nameGlow {
+            from { 
+                text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 20px #8338ec; 
+            }
+            to { 
+                text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 40px #ff006e, 0 0 60px #06ffa5; 
+            }
+        }
+
+        .party-details {
+            background: linear-gradient(135deg, #ff006e20, #8338ec20);
             border-radius: 20px;
             padding: 2rem;
             margin: 2rem 0;
+            border: 2px dashed #ff006e;
+            position: relative;
+        }
+
+        .party-details::before {
+            content: '✨🎉✨';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .detail-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            width: 50px;
+            text-align: center;
+        }
+
+        .dress-code {
+            background: linear-gradient(45deg, #06ffa5, #3a86ff);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .dress-code h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
-        .name {
-            font-size: 2.5rem;
-            color: #e91e63;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .buttons-container {
+        .interactive-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
 
-        .gay-button {
-            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500);
+        .fab-button {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
             border: none;
-            border-radius: 25px;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: bold;
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
             color: white;
             cursor: pointer;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(255,0,110,0.4);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .gay-button:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        .fab-button:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 12px 35px rgba(255,0,110,0.6);
         }
 
-        .gay-button:active {
+        .fab-button:active {
             transform: scale(0.95);
         }
 
-        .firework {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1000;
+        .fab-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
         }
 
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            pointer-events: none;
-            z-index: 1000;
+        .fab-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
-        .hearts {
-            position: fixed;
+        .rsvp-section {
+            background: linear-gradient(135deg, #ffbe0b, #fb5607);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .rsvp-section h3 {
             font-size: 2rem;
-            pointer-events: none;
-            z-index: 1000;
-            animation: heartFloat 3s ease-out forwards;
+            margin-bottom: 1rem;
+            font-weight: 800;
         }
 
-        @keyframes heartFloat {
+        .floating-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 2rem;
+            animation: floatUp 4s ease-out forwards;
+        }
+
+        @keyframes floatUp {
             0% {
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-200px) rotate(360deg);
+                transform: translateY(-300px) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        .sparkle {
+        .party-mode {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
-            z-index: 1000;
-            animation: sparkleAnim 1s ease-out forwards;
-        }
-
-        @keyframes sparkleAnim {
-            0% {
-                transform: scale(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.5) rotate(180deg);
-                opacity: 0;
-            }
-        }
-
-        .disco-ball {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: conic-gradient(from 0deg, #gold, #silver, #gold, #silver);
-            border-radius: 50%;
-            animation: spin 2s linear infinite;
-            z-index: 1000;
-            pointer-events: none;
+            z-index: 999;
+            background: linear-gradient(45deg, 
+                rgba(255,0,110,0.3), rgba(131,56,236,0.3), 
+                rgba(58,134,255,0.3), rgba(6,255,165,0.3));
+            animation: partyFlash 0.5s ease-in-out infinite;
             opacity: 0;
         }
 
-        @keyframes spin {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+        @keyframes partyFlash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
-        .message-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, #ff6b9d, #c44569);
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            z-index: 1001;
-            opacity: 0;
-            pointer-events: none;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .gay-person {
+        .dancing-emoji {
             position: fixed;
             font-size: 4rem;
             pointer-events: none;
-            z-index: 999;
-            animation: gayPersonFloat 4s ease-in-out infinite;
+            z-index: 1001;
+            animation: ultraDance 0.8s ease-in-out infinite;
         }
 
-        @keyframes gayPersonFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(5deg); }
-            50% { transform: translateY(-10px) rotate(-5deg); }
-            75% { transform: translateY(-15px) rotate(3deg); }
+        @keyframes ultraDance {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-30px) rotate(-15deg) scale(1.2); }
+            50% { transform: translateY(-10px) rotate(15deg) scale(0.8); }
+            75% { transform: translateY(-20px) rotate(-10deg) scale(1.1); }
         }
 
-        .dancing-person {
+        .glitter {
             position: fixed;
-            font-size: 3rem;
             pointer-events: none;
-            z-index: 999;
-            animation: dance 1s ease-in-out infinite;
+            z-index: 1000;
         }
 
-        @keyframes dance {
-            0%, 100% { transform: translateX(0px) rotate(0deg) scale(1); }
-            25% { transform: translateX(-5px) rotate(-10deg) scale(1.1); }
-            50% { transform: translateX(5px) rotate(10deg) scale(0.9); }
-            75% { transform: translateX(-3px) rotate(-5deg) scale(1.05); }
-        }
-
-        .pride-flag {
-            position: fixed;
-            width: 60px;
-            height: 40px;
-            pointer-events: none;
-            z-index: 998;
-            background: linear-gradient(to bottom, 
-                #e40303 0%, #e40303 16.66%, 
-                #ff8c00 16.66%, #ff8c00 33.33%, 
-                #ffed00 33.33%, #ffed00 50%, 
-                #008018 50%, #008018 66.66%, 
-                #0066ff 66.66%, #0066ff 83.33%, 
-                #8b00ff 83.33%, #8b00ff 100%);
-            border-radius: 5px;
-            animation: flagWave 2s ease-in-out infinite;
-        }
-
-        @keyframes flagWave {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(10deg) scale(1.1); }
-        }
-
-        .rainbow-trail {
-            position: fixed;
-            width: 100px;
-            height: 20px;
-            pointer-events: none;
-            z-index: 997;
-            background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff);
-            border-radius: 10px;
-            animation: trailMove 3s linear infinite;
-        }
-
-        @keyframes trailMove {
-            0% { 
-                transform: translateX(-100px) rotate(0deg);
-                opacity: 0;
+        @keyframes glitterFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
             }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateX(calc(100vw + 100px)) rotate(360deg);
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
                 opacity: 0;
             }
         }
 
         @media (max-width: 768px) {
-            .rainbow-text {
-                font-size: 2.5rem;
-            }
-            .name {
-                font-size: 2rem;
-            }
-            .buttons-container {
-                grid-template-columns: 1fr;
-            }
+            .party-title { font-size: 2.5rem; }
+            .birthday-boy { font-size: 3rem; }
+            .invitation-container { margin: 1rem; padding: 1.5rem; }
+            .interactive-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="rainbow-text">🌈 FELIZ ANIVERSÁRIO! 🌈</h1>
-        
-        <div class="birthday-message">
-            <div class="name">Eduardo Staudt de Castilhos</div>
-            <p style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">
-                🎉 Que seu dia seja repleto de cores, alegria e muito amor! 🎉
+    <div class="invitation-container">
+        <div class="header">
+            <div class="party-title">🎉 VOCÊ ESTÁ CONVIDADO! 🎉</div>
+            <div class="subtitle">Para a festa mais GAY e FABULOSA do ano!</div>
+            <div class="birthday-boy">Eduardo Staudt de Castilhos</div>
+            <div style="font-size: 1.5rem; color: #666; margin-top: 0.5rem;">
+                🌈 Está fazendo mais um ano de FABULOSIDADE! 🌈
+            </div>
+        </div>
+
+        <div class="party-details">
+            <div class="detail-item">
+                <div class="detail-icon">📅</div>
+                <div><strong>Data:</strong> [COLOQUE SUA DATA AQUI] 🎂</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-icon">⏰</div>
+                <div><strong>Horário:</strong> A partir das [HORÁRIO] - Vamos até o sol raiar! ☀️</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-icon">📍</div>
+                <div><strong>Local:</strong> [SEU ENDEREÇO AQUI] 🏠</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-icon">🎵</div>
+                <div><strong>Música:</strong> Pop Diva, Dance, House e muita PEGAÇÃO! 💃🕺</div>
+            </div>
+        </div>
+
+        <div class="dress-code">
+            <h3>👗 DRESS CODE FABULOSO 👔</h3>
+            <p><strong>VENHA MONTADO(A)!</strong> Glitter, brilho, cores NEON, paetês, plumas!</p>
+            <p>Quanto mais GAY, melhor! 🏳️‍🌈✨</p>
+            <p><em>Outfit sem graça = porta da rua da serventia! 💅</em></p>
+        </div>
+
+        <div class="rsvp-section">
+            <h3>📱 CONFIRMA PRESENÇA, GATA!</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+                Manda um "SIM, VOU LACRAR!" no WhatsApp:
             </p>
-            <p style="font-size: 1.1rem; color: #666;">
-                Clique nos botões abaixo para uma celebração super especial! ✨
+            <p style="font-size: 1.8rem; font-weight: 800;">
+                📞 [SEU TELEFONE AQUI]
+            </p>
+            <p style="font-size: 1rem; margin-top: 1rem;">
+                Ou chama no direct do Insta: <strong>@[SEU INSTA]</strong>
             </p>
         </div>
 
-        <div class="buttons-container">
-            <button class="gay-button" onclick="explodeRainbow()">
-                🌈 EXPLOSÃO DE ARCO-ÍRIS 🌈
-            </button>
-            
-            <button class="gay-button" onclick="heartRain()">
-                💖 CHUVA DE CORAÇÕES 💖
-            </button>
-            
-            <button class="gay-button" onclick="discoBall()">
-                🕺 MODO DISCO 🕺
-            </button>
-            
-            <button class="gay-button" onclick="confettiParty()">
-                🎊 FESTA DE CONFETE 🎊
-            </button>
-            
-            <button class="gay-button" onclick="sparkleShow()">
-                ✨ SHOW DE BRILHOS ✨
-            </button>
-            
-            <button class="gay-button" onclick="birthdayMessage()">
-                🎂 MENSAGEM ESPECIAL 🎂
-            </button>
+        <div style="text-align: center; margin: 2rem 0;">
+            <h3 style="color: #ff006e; margin-bottom: 1rem;">🎁 O QUE ROLA NA FESTA:</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; font-size: 1.1rem;">
+                <div>🍹 Open Bar Fabuloso</div>
+                <div>🎂 Bolo de Aniversário</div>
+                <div>💃 Pista de Dança</div>
+                <div>📸 Cabine de Fotos</div>
+                <div>🎤 Karaokê Gay</div>
+                <div>🏆 Concurso de Look</div>
+            </div>
+        </div>
 
-            <button class="gay-button" onclick="gayParade()">
-                🏳️‍🌈 PARADA GAY 🏳️‍🌈
+        <div class="interactive-buttons">
+            <button class="fab-button" onclick="partyExplosion()">
+                🎊 EXPLOSÃO DE FESTA 🎊
             </button>
             
-            <button class="gay-button" onclick="danceParty()">
-                💃 FESTA DANÇANTE 🕺
+            <button class="fab-button" onclick="gayParade()">
+                🏳️‍🌈 DESFILE GAY 🏳️‍🌈
             </button>
             
-            <button class="gay-button" onclick="prideExplosion()">
-                🎪 EXPLOSÃO DO ORGULHO 🎪
+            <button class="fab-button" onclick="danceOff()">
+                💃 DANCE BATTLE 🕺
             </button>
+            
+            <button class="fab-button" onclick="glitterBomb()">
+                ✨ BOMBA DE GLITTER ✨
+            </button>
+            
+            <button class="fab-button" onclick="vogueFever()">
+                👑 VOGUE FEVER 👑
+            </button>
+            
+            <button class="fab-button" onclick="diaMode()">
+                🎪 MODO DIA DA BICHA 🎪
+            </button>
+        </div>
+
+        <div style="text-align: center; padding: 1.5rem; background: linear-gradient(45deg, #ff006e20, #8338ec20); border-radius: 15px; margin-top: 2rem;">
+            <p style="font-size: 1.3rem; color: #333; font-weight: 600;">
+                💖 "A vida é uma festa, e você é o motivo da celebração!" 💖
+            </p>
+            <p style="font-size: 1.1rem; color: #666; margin-top: 0.5rem;">
+                Vem lacrar comigo, amô! 🥰
+            </p>
         </div>
     </div>
 
-    <div class="disco-ball" id="discoBall"></div>
-    <div class="message-popup" id="messagePopup">
-        🎈 Eduardo, você é incrível! 🎈<br>
-        Que todos os seus sonhos se realizem! 🌟
-    </div>
+    <div class="party-mode" id="partyMode"></div>
 
     <script>
-        function explodeRainbow() {
-            const colors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8000ff', '#ff00ff'];
+        function partyExplosion() {
+            const emojis = ['🎉', '🎊', '🥳', '💖', '🌈', '✨', '🎂', '🍾', '💃', '🕺', '👑', '💅', '🦄', '🏳️‍🌈'];
             
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
-                    const firework = document.createElement('div');
-                    firework.className = 'firework';
-                    firework.style.left = Math.random() * window.innerWidth + 'px';
-                    firework.style.top = Math.random() * window.innerHeight + 'px';
-                    firework.style.width = '20px';
-                    firework.style.height = '20px';
-                    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    firework.style.borderRadius = '50%';
-                    firework.style.boxShadow = '0 0 20px currentColor';
+                    const emoji = document.createElement('div');
+                    emoji.className = 'floating-emoji';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * window.innerWidth + 'px';
+                    emoji.style.top = window.innerHeight + 'px';
+                    emoji.style.fontSize = (Math.random() * 2 + 1) + 'rem';
                     
-                    document.body.appendChild(firework);
+                    document.body.appendChild(emoji);
                     
                     setTimeout(() => {
-                        firework.style.transform = 'scale(5)';
-                        firework.style.opacity = '0';
-                        firework.style.transition = 'all 1s ease-out';
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(firework);
-                    }, 1100);
-                }, i * 50);
-            }
-        }
-
-        function heartRain() {
-            const hearts = ['💖', '💕', '💗', '💓', '💝', '❤️', '🧡', '💛', '💚', '💙', '💜'];
-            
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'hearts';
-                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-                    heart.style.left = Math.random() * window.innerWidth + 'px';
-                    heart.style.top = window.innerHeight + 'px';
-                    
-                    document.body.appendChild(heart);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(heart);
-                    }, 3000);
+                        document.body.removeChild(emoji);
+                    }, 4000);
                 }, i * 100);
             }
-        }
-
-        function discoBall() {
-            const discoBall = document.getElementById('discoBall');
-            discoBall.style.opacity = '1';
-            
-            document.body.style.filter = 'hue-rotate(0deg)';
-            let hue = 0;
-            const interval = setInterval(() => {
-                hue += 10;
-                document.body.style.filter = `hue-rotate(${hue}deg)`;
-                if (hue >= 360) {
-                    clearInterval(interval);
-                    document.body.style.filter = 'none';
-                    discoBall.style.opacity = '0';
-                }
-            }, 100);
-        }
-
-        function confettiParty() {
-            const colors = ['#ff6b9d', '#c44569', '#f8b500', '#f0932b', '#eb4d4b', '#6c5ce7', '#fd79a8', '#fdcb6e'];
-            
-            for (let i = 0; i < 100; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.left = Math.random() * window.innerWidth + 'px';
-                    confetti.style.top = '-20px';
-                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                    
-                    document.body.appendChild(confetti);
-                    
-                    const fallDuration = Math.random() * 2 + 2;
-                    const rotation = Math.random() * 360;
-                    
-                    confetti.style.animation = `confettiFall ${fallDuration}s linear forwards`;
-                    confetti.style.transform = `rotate(${rotation}deg)`;
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(confetti);
-                    }, fallDuration * 1000);
-                }, i * 30);
-            }
-        }
-
-        function sparkleShow() {
-            const sparkles = ['✨', '⭐', '🌟', '💫', '⚡'];
-            
-            for (let i = 0; i < 40; i++) {
-                setTimeout(() => {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'sparkle';
-                    sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
-                    sparkle.style.left = Math.random() * window.innerWidth + 'px';
-                    sparkle.style.top = Math.random() * window.innerHeight + 'px';
-                    sparkle.style.fontSize = (Math.random() * 2 + 1) + 'rem';
-                    
-                    document.body.appendChild(sparkle);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(sparkle);
-                    }, 1000);
-                }, i * 50);
-            }
-        }
-
-        function birthdayMessage() {
-            const popup = document.getElementById('messagePopup');
-            popup.style.opacity = '1';
-            popup.style.transform = 'translate(-50%, -50%) scale(1.2)';
-            popup.style.transition = 'all 0.5s ease';
-            
-            setTimeout(() => {
-                popup.style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 200);
-            
-            setTimeout(() => {
-                popup.style.opacity = '0';
-                popup.style.transform = 'translate(-50%, -50%) scale(0.8)';
-            }, 3000);
         }
 
         function gayParade() {
-            const gayPeople = ['👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '👨‍❤️‍💋‍👨', '👩‍❤️‍💋‍👩', '🌈', '💅', '💃', '🕺', '👑', '💖', '🦄', '✨'];
-            
-            for (let i = 0; i < 25; i++) {
-                setTimeout(() => {
-                    const person = document.createElement('div');
-                    person.className = 'gay-person';
-                    person.textContent = gayPeople[Math.floor(Math.random() * gayPeople.length)];
-                    person.style.left = '-100px';
-                    person.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-                    
-                    document.body.appendChild(person);
-                    
-                    // Move da esquerda para direita
-                    setTimeout(() => {
-                        person.style.transition = 'left 4s linear';
-                        person.style.left = window.innerWidth + 100 + 'px';
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(person);
-                    }, 4500);
-                }, i * 200);
-            }
-
-            // Adiciona bandeiras do orgulho
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const flag = document.createElement('div');
-                    flag.className = 'pride-flag';
-                    flag.style.left = Math.random() * window.innerWidth + 'px';
-                    flag.style.top = Math.random() * window.innerHeight + 'px';
-                    
-                    document.body.appendChild(flag);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(flag);
-                    }, 3000);
-                }, i * 100);
-            }
-        }
-
-        function danceParty() {
-            const dancers = ['💃', '🕺', '👯‍♀️', '👯‍♂️', '🕴️', '💅', '👨‍❤️‍👨', '👩‍❤️‍👩'];
+            const gayEmojis = ['👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '👨‍❤️‍💋‍👨', '👩‍❤️‍💋‍👩', '💅', '👑', '🦄', '💖'];
             
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.textContent = gayEmojis[Math.floor(Math.random() * gayEmojis.length)];
+                    emoji.style.position = 'fixed';
+                    emoji.style.fontSize = '3rem';
+                    emoji.style.left = '-100px';
+                    emoji.style.top = Math.random() * window.innerHeight + 'px';
+                    emoji.style.pointerEvents = 'none';
+                    emoji.style.zIndex = '1000';
+                    emoji.style.transition = 'left 4s linear';
+                    
+                    document.body.appendChild(emoji);
+                    
+                    setTimeout(() => {
+                        emoji.style.left = window.innerWidth + 100 + 'px';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(emoji);
+                    }, 4200);
+                }, i * 200);
+            }
+        }
+
+        function danceOff() {
+            const dancers = ['💃', '🕺', '👯‍♀️', '👯‍♂️', '🕴️'];
+            const positions = [
+                {left: '20%', top: '20%'}, {left: '80%', top: '20%'},
+                {left: '20%', top: '80%'}, {left: '80%', top: '80%'},
+                {left: '50%', top: '50%'}
+            ];
+
+            positions.forEach((pos, index) => {
+                setTimeout(() => {
                     const dancer = document.createElement('div');
-                    dancer.className = 'dancing-person';
-                    dancer.textContent = dancers[Math.floor(Math.random() * dancers.length)];
-                    dancer.style.left = Math.random() * window.innerWidth + 'px';
-                    dancer.style.top = Math.random() * window.innerHeight + 'px';
+                    dancer.className = 'dancing-emoji';
+                    dancer.textContent = dancers[index % dancers.length];
+                    dancer.style.left = pos.left;
+                    dancer.style.top = pos.top;
                     
                     document.body.appendChild(dancer);
                     
                     setTimeout(() => {
                         document.body.removeChild(dancer);
-                    }, 3000);
-                }, i * 150);
-            }
-
-            // Adiciona trails de arco-íris
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const trail = document.createElement('div');
-                    trail.className = 'rainbow-trail';
-                    trail.style.top = Math.random() * window.innerHeight + 'px';
-                    trail.style.left = '-100px';
-                    
-                    document.body.appendChild(trail);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(trail);
-                    }, 3000);
-                }, i * 300);
-            }
-        }
-
-        function prideExplosion() {
-            const prideElements = ['🏳️‍🌈', '👨‍❤️‍👨', '👩‍❤️‍👩', '💖', '🌈', '💅', '👑', '🦄', '✨', '💃', '🕺', '💋', '👯‍♀️', '👯‍♂️'];
-            
-            // Explosão central
-            for (let i = 0; i < 40; i++) {
-                setTimeout(() => {
-                    const element = document.createElement('div');
-                    element.textContent = prideElements[Math.floor(Math.random() * prideElements.length)];
-                    element.style.position = 'fixed';
-                    element.style.fontSize = '2rem';
-                    element.style.left = window.innerWidth / 2 + 'px';
-                    element.style.top = window.innerHeight / 2 + 'px';
-                    element.style.pointerEvents = 'none';
-                    element.style.zIndex = '1000';
-                    
-                    const angle = (i / 40) * 2 * Math.PI;
-                    const distance = Math.random() * 300 + 100;
-                    
-                    document.body.appendChild(element);
-                    
-                    setTimeout(() => {
-                        element.style.transition = 'all 2s ease-out';
-                        element.style.left = (window.innerWidth / 2 + Math.cos(angle) * distance) + 'px';
-                        element.style.top = (window.innerHeight / 2 + Math.sin(angle) * distance) + 'px';
-                        element.style.transform = 'rotate(720deg) scale(2)';
-                        element.style.opacity = '0';
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(element);
-                    }, 2200);
-                }, i * 50);
-            }
-
-            // Casais dançando nos cantos
-            const couples = ['👨‍❤️‍👨', '👩‍❤️‍👩', '👨‍❤️‍💋‍👨', '👩‍❤️‍💋‍👩'];
-            const positions = [
-                {left: '10%', top: '10%'},
-                {left: '90%', top: '10%'},
-                {left: '10%', top: '90%'},
-                {left: '90%', top: '90%'}
-            ];
-
-            positions.forEach((pos, index) => {
-                setTimeout(() => {
-                    const couple = document.createElement('div');
-                    couple.textContent = couples[index % couples.length];
-                    couple.style.position = 'fixed';
-                    couple.style.fontSize = '4rem';
-                    couple.style.left = pos.left;
-                    couple.style.top = pos.top;
-                    couple.style.pointerEvents = 'none';
-                    couple.style.zIndex = '999';
-                    couple.style.animation = 'dance 0.5s ease-in-out infinite';
-                    
-                    document.body.appendChild(couple);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(couple);
                     }, 4000);
-                }, index * 500);
+                }, index * 300);
             });
         }
 
-        // Adiciona animação CSS para confetti
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes confettiFall {
-                to {
-                    transform: translateY(${window.innerHeight + 50}px) rotate(720deg);
-                }
+        function glitterBomb() {
+            const colors = ['#FFD700', '#FF69B4', '#00CED1', '#FF6347', '#9370DB', '#32CD32'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const glitter = document.createElement('div');
+                    glitter.className = 'glitter';
+                    glitter.style.width = '8px';
+                    glitter.style.height = '8px';
+                    glitter.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    glitter.style.left = Math.random() * window.innerWidth + 'px';
+                    glitter.style.top = '-20px';
+                    glitter.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    glitter.style.animation = `glitterFall ${Math.random() * 3 + 2}s linear forwards`;
+                    
+                    document.body.appendChild(glitter);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(glitter);
+                    }, 5000);
+                }, i * 20);
             }
-        `;
-        document.head.appendChild(style);
+        }
 
-        // Efeito automático de pessoas gays passando na tela
+        function vogueFever() {
+            const voguePoses = ['💁‍♀️', '💁‍♂️', '🙆‍♀️', '🙆‍♂️', '🤷‍♀️', '🤷‍♂️', '💅', '👸', '🤴'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const voguer = document.createElement('div');
+                    voguer.textContent = voguePoses[Math.floor(Math.random() * voguePoses.length)];
+                    voguer.style.position = 'fixed';
+                    voguer.style.fontSize = '4rem';
+                    voguer.style.left = Math.random() * window.innerWidth + 'px';
+                    voguer.style.top = Math.random() * window.innerHeight + 'px';
+                    voguer.style.pointerEvents = 'none';
+                    voguer.style.zIndex = '1000';
+                    voguer.style.animation = 'ultraDance 0.5s ease-in-out infinite';
+                    
+                    document.body.appendChild(voguer);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(voguer);
+                    }, 3000);
+                }, i * 150);
+            }
+        }
+
+        function diaMode() {
+            const partyMode = document.getElementById('partyMode');
+            partyMode.style.opacity = '1';
+            
+            // Adiciona emojis dançando por toda tela
+            const gayEmojis = ['💃', '🕺', '👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '💖', '👑', '💅', '🦄'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'dancing-emoji';
+                    emoji.textContent = gayEmojis[Math.floor(Math.random() * gayEmojis.length)];
+                    emoji.style.left = Math.random() * window.innerWidth + 'px';
+                    emoji.style.top = Math.random() * window.innerHeight + 'px';
+                    
+                    document.body.appendChild(emoji);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(emoji);
+                    }, 5000);
+                }, i * 100);
+            }
+
+            setTimeout(() => {
+                partyMode.style.opacity = '0';
+            }, 5000);
+        }
+
+        // Efeitos automáticos
         setInterval(() => {
-            if (Math.random() < 0.3) {
-                const gayPeople = ['👨‍❤️‍👨', '👩‍❤️‍👩', '🏳️‍🌈', '💅', '👑', '🦄'];
-                const person = document.createElement('div');
-                person.textContent = gayPeople[Math.floor(Math.random() * gayPeople.length)];
-                person.style.position = 'fixed';
-                person.style.fontSize = '3rem';
-                person.style.left = '-100px';
-                person.style.top = Math.random() * window.innerHeight + 'px';
-                person.style.pointerEvents = 'none';
-                person.style.zIndex = '998';
-                person.style.transition = 'left 5s linear';
+            if (Math.random() < 0.2) {
+                const randomEmojis = ['🌈', '✨', '💖', '🦄', '👑'];
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = randomEmojis[Math.floor(Math.random() * randomEmojis.length)];
+                emoji.style.left = Math.random() * window.innerWidth + 'px';
+                emoji.style.top = window.innerHeight + 'px';
+                emoji.style.fontSize = '1.5rem';
                 
-                document.body.appendChild(person);
+                document.body.appendChild(emoji);
                 
                 setTimeout(() => {
-                    person.style.left = window.innerWidth + 100 + 'px';
-                }, 100);
-                
-                setTimeout(() => {
-                    if (document.body.contains(person)) {
-                        document.body.removeChild(person);
-                    }
-                }, 5200);
-            }
-        }, 2000);
-
-        // Efeito automático de brilho no fundo
-        setInterval(() => {
-            if (Math.random() < 0.1) {
-                sparkleShow();
+                    document.body.removeChild(emoji);
+                }, 4000);
             }
         }, 3000);
     </script>
